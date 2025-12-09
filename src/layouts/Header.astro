@@ -4,6 +4,196 @@ import logo from "../img/NVFotologo.webp";
 
 <header class="header">
   <div>
-    <a href="/"><img src={logo.src} alt="Logo" /></a>
+    <a href="/"><img src={logo.src} alt="Logo" class="logo" /></a>
   </div>
+
+  <nav class="nav-links">
+    <a href="/" class="nav-link">HJEM</a>
+    <a href="/fremkald" class="nav-link">FREMKALD</a>
+    <a href="/pasfoto" class="nav-link">PASFOTO</a>
+    <a href="/kamera" class="nav-link">KAMERA</a>
+  </nav>
+
+  <div
+    class="hamburger"
+    aria-label="Menu"
+    aria-expanded="false"
+    role="button"
+    tabindex="0"
+  >
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </div>
+
+  <ul class="navmenu">
+    <li><a href="/" class="nav-link1">HJEM</a></li>
+    <li><a href="/fremkald" class="nav-link2">FREMKALD</a></li>
+    <li><a href="/pasfoto" class="nav-link3">PASFOTO</a></li>
+    <li><a href="/kamera" class="nav-link3">KAMERA</a></li>
+  </ul>
 </header>
+
+<style>
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 130px;
+    background-color: #091f5b;
+  }
+
+  .logo {
+    height: 50px;
+    width: auto;
+    margin: 0 0 0 5rem;
+  }
+
+  .nav-links {
+    display: flex;
+    margin-right: 5rem;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 0 2rem;
+    font-family: montserrat-m;
+    font-size: 32px;
+    display: block;
+    height: 130px;
+    line-height: 130px;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  .nav-link:hover {
+    color: #00071a;
+    background-color: #f2ece5;
+    font-family: montserrat-sb;
+  }
+
+  .hamburger {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    padding: 10px;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin-right: 2rem;
+  }
+
+  .bar {
+    display: block;
+    width: 40px;
+    height: 5px;
+    background-color: #091f5b;
+    margin: 5px auto;
+    transition: 0.4s;
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    position: absolute;
+    transform: rotate(45deg);
+    top: 50%;
+    left: 50%;
+    margin-top: -2.5px;
+    margin-left: -20px;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    position: absolute;
+    transform: rotate(-45deg);
+    top: 50%;
+    left: 50%;
+    margin-top: -2.5px;
+    margin-left: -20px;
+  }
+
+  .navmenu {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    border-radius: 10px;
+    padding: 10px;
+    transform: scaleY(0);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+    list-style: none;
+    background-color: rgba(239, 239, 239, 0.1);
+    backdrop-filter: blur(5px);
+  }
+
+  .navmenu.active {
+    transform: scaleY(1);
+  }
+
+  .navmenu li {
+    padding-bottom: 5px;
+    text-align: center;
+  }
+
+  .navmenu li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    width: 200px;
+    background-color: #091f5b;
+    padding: 15px;
+    border-radius: 8px;
+    display: block;
+    font-family: montserrat-m;
+  }
+
+  @media (max-width: 1000px) {
+    .header {
+      height: 95px;
+    }
+
+    .nav-links {
+      display: none;
+    }
+    .hamburger {
+      display: flex;
+    }
+    .logo {
+      margin: 0 2rem;
+      height: 50px;
+    }
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".navmenu");
+
+    hamburger.addEventListener("click", function () {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+      const isExpanded = navMenu.classList.contains("active");
+      hamburger.setAttribute("aria-expanded", isExpanded);
+    });
+
+    document.querySelectorAll(".nav-link").forEach((link) =>
+      link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+      })
+    );
+  });
+</script>
