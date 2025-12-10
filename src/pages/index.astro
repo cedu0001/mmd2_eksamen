@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import "../css/general.css";
 import Objektiv from "../img/objektiv.webp";
 import kontorartikler from "../img/kontorartikler.webp";
+import moenter from "../img/moenter.webp";
+import GLS from "../img/gls.webp";
 ---
 
 <Layout>
@@ -29,8 +31,24 @@ Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider 
 <div>
     <section class="grid_1-1">
 <article class="dark_blue">
-    <div><h3>RAMMER & KONTORARTIKLER</h3>
-    <img src={kontorartikler.src} alt=""></div>
+    <div class="flex_r">
+    <img class="dark_blue_img" src={kontorartikler.src} alt="">
+<h3 class="font_light">RAMMER & KONTORARTIKLER</h3></div>
+<p class="font_light">I butikken finder du et udvalg af kontorartikler. Her kan du gå på opdagelse i alt fra blækpatroner og papir, til skriveredskaber, ringbind og andre praktiske redskaber, der gør hverdagen lidt lettere - uanset om det er til studie, arbejde eller hjemmekontoret.</p>
+<p class="font_light">Du kan også finde et udvalg af billederammer, dine bedste øjeblikke fortjener en plads i hjemmet.</p>
+</article>
+
+<article class="dark_blue">
+    <img class="dark_blue_img_moenter" src={moenter.src} alt="">
+<h3 class="font_light">SAMLEROBJEKTER</h3>
+<p class="font_light">Vi sælger både gamle og nye mønter samt frimærker og har et stort, spændende udvalg på hylderne. Kom gerne forbi og se vores samlinger – måske finder du netop det du mangler til din samling.</p>
+<p class="font_light">Har du en samling liggende du vil sælge - stor eller lille - er du altid velkommen til at kigge forbi til en uforpligtende snak.</p>
+</article>
+
+<article class="light_blue">
+    <h3>GLS</h3>
+    <div class="grid_1-1 flex_r"><p>Du kan både sende og hente dine pakker fra GLS hos NV Foto.</p>
+    <img class="dark_blue_img"  src={GLS.src} alt=""></div>
 </article>
     </section>
 </div>
@@ -38,7 +56,19 @@ Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider 
 
  
 <style>
-   
+    .light_blue {
+        background-color: #E5F3FF;
+        border-radius: 25px;
+        padding: 20px;
+        margin-bottom: 40px;
+    }
+    .font_light {
+        color: white;
+    }
+   .flex_r {
+    display: flex;
+    flex-direction: row;
+   }
     dotlottie-wc {
         object-fit: cover;
     }
@@ -53,11 +83,21 @@ max-width: 500px;
      }
      h1 {font-size: 48px;
     margin: 0;}
-    h3 {margin: 0;}
+    h3 {margin: 0;
+    max-width: 310px;}
      .dark_blue
      {background-color: #091F5B;
     border-radius: 25px;
-padding: 20px;}
+padding: 20px;
+margin-bottom: 40px;}
+.dark_blue_img {
+    max-height: 160px;
+    width: auto;
+}
+.dark_blue_img_moenter {
+    max-height: 80px;
+    width: auto;
+}
     @media (min-width: 800px) {
         dotlottie-wc {
         object-fit: cover;
@@ -71,6 +111,13 @@ margin-top: 150px;
      p {
         max-width: 760px;
      }
+     .dark_blue_img_moenter {
+        display: flex;
+        flex-direction: row;
+        align-items: end;
+    max-height: 100px;
+    width: auto;
+}
     .grid_1-1 {
         display: grid;
         grid-template-columns: 1fr 1fr;
