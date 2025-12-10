@@ -5,17 +5,19 @@ import Objektiv from "../img/objektiv.webp";
 import kontorartikler from "../img/kontorartikler.webp";
 import moenter from "../img/moenter.webp";
 import GLS from "../img/gls.webp";
+import gul_top from "../img/gul_bolge_top.webp"
+import gul_bund from "../img/gul_bolge_bund.webp"
 ---
 
 <Layout>
-    <section class="grid_1-1">
+    <section class="grid_1-1 hero">
         <div><script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
 <dotlottie-wc src="https://lottie.host/17751df1-2dcd-45cb-8e2c-555116030c99/NIVRt20woD.lottie" autoplay loop></dotlottie-wc>
 </div>
 <h1>Analog magi i et digitalt univers, kom og mød kameraer med sjæl.</h1>
     </section>
-
-    <div>
+<img class="streach" src={gul_top.src} alt="">
+    <div class="gul_bg">
         <section class="grid_3-1"><div>
             <h2>ALT TIL DIN ANALOG REJSE - ÉT STED</h2>
         <p>NV Foto er drevet af entusiaster, der brænder for at bevare og dele glæden ved analog fotografering. 
@@ -23,7 +25,7 @@ Vi  sælger og køber brugte kameraer, fremkalder dine film, og tilbyder alt, hv
 Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider dig hele vejen. Besøg os i butikken, og lad os hjælpe dig med at genskabe magien i at tage billeder - én rulle film ad gangen.</p></div>
 <img src={Objektiv.src} alt="Illustration af en kameralinse"></section>
     </div>
-
+<img class="streach" src={gul_bund.src} alt="">
 <section>
     <h2>UDFORSK</h2>
 </section>
@@ -32,14 +34,14 @@ Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider 
     <section class="grid_1-1">
 <article class="dark_blue">
     <div class="flex_r">
-    <img class="dark_blue_img" src={kontorartikler.src} alt="">
+    <img class="dark_blue_img" src={kontorartikler.src} alt="Illustration af printer samt rammer">
 <h3 class="font_light">RAMMER & KONTORARTIKLER</h3></div>
 <p class="font_light">I butikken finder du et udvalg af kontorartikler. Her kan du gå på opdagelse i alt fra blækpatroner og papir, til skriveredskaber, ringbind og andre praktiske redskaber, der gør hverdagen lidt lettere - uanset om det er til studie, arbejde eller hjemmekontoret.</p>
 <p class="font_light">Du kan også finde et udvalg af billederammer, dine bedste øjeblikke fortjener en plads i hjemmet.</p>
 </article>
 
 <article class="dark_blue">
-    <img class="dark_blue_img_moenter" src={moenter.src} alt="">
+    <img class="dark_blue_img_moenter" src={moenter.src} alt="Illustration af mønter">
 <h3 class="font_light">SAMLEROBJEKTER</h3>
 <p class="font_light">Vi sælger både gamle og nye mønter samt frimærker og har et stort, spændende udvalg på hylderne. Kom gerne forbi og se vores samlinger – måske finder du netop det du mangler til din samling.</p>
 <p class="font_light">Har du en samling liggende du vil sælge - stor eller lille - er du altid velkommen til at kigge forbi til en uforpligtende snak.</p>
@@ -47,8 +49,14 @@ Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider 
 
 <article class="light_blue">
     <h3>GLS</h3>
-    <div class="grid_1-1 flex_r"><p>Du kan både sende og hente dine pakker fra GLS hos NV Foto.</p>
-    <img class="dark_blue_img"  src={GLS.src} alt=""></div>
+    <div class="grid_1-1 flex_r_web"><p>Du kan både sende og hente dine pakker fra GLS hos NV Foto.</p>
+    <img class="light_blue_img" src={GLS.src} alt="GLS pakkeshop label"></div>
+</article>
+
+<article class="light_blue">
+    <h3>INSTA-FÆLLESSKAB</h3>
+    <div class="grid_1-1 flex_r_web"><p>Følg os på Instagram for tips, nyheder og små glimt af det, der sker i butikken.</p>
+    <img class="light_blue_img"  src={GLS.src} alt=""></div>
 </article>
     </section>
 </div>
@@ -56,6 +64,22 @@ Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider 
 
  
 <style>
+
+    .hero {
+        margin-bottom: 100px;
+        margin-top: 90px;
+    }
+    img, div {
+        margin: 0;
+    }
+    .gul_bg {
+        background-color: #ffd87d;
+    }
+    .streach {
+        width: 100vw;
+        margin-top: -2px;
+        margin-bottom: -5px;
+    }
     .light_blue {
         background-color: #E5F3FF;
         border-radius: 25px;
@@ -65,7 +89,7 @@ Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider 
     .font_light {
         color: white;
     }
-   .flex_r {
+ .flex_r {
     display: flex;
     flex-direction: row;
    }
@@ -75,14 +99,18 @@ Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider 
      img {
         max-height: 370px;
         width: auto;
+        margin: 0;
      }
      section {
 margin: 0 auto;
-margin-top: 100px;
 max-width: 500px;
      }
      h1 {font-size: 48px;
     margin: 0;}
+    h2 {
+        margin: 0;
+        padding-top: 20px;
+    }
     h3 {margin: 0;
     max-width: 310px;}
      .dark_blue
@@ -94,11 +122,23 @@ margin-bottom: 40px;}
     max-height: 160px;
     width: auto;
 }
+.light_blue_img {
+    max-height: 160px;
+    width: auto;
+}
 .dark_blue_img_moenter {
     max-height: 80px;
     width: auto;
 }
     @media (min-width: 800px) {
+        .hero {
+        margin-bottom: 150px;
+        margin-top: 120px;
+    }
+        .flex_r_web {
+            display: flex;
+    flex-direction: row;
+        }
         dotlottie-wc {
         object-fit: cover;
         height: auto;
@@ -106,7 +146,6 @@ margin-bottom: 40px;}
     }
      section {
         max-width: 1160px;
-margin-top: 150px;
      }
      p {
         max-width: 760px;
