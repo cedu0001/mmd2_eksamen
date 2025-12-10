@@ -1,6 +1,88 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../css/general.css";
+import Objektiv from "../img/objektiv.webp";
+import kontorartikler from "../img/kontorartikler.webp";
 ---
 
-<Layout />
+<Layout>
+    <section class="grid_1-1">
+        <div><script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc src="https://lottie.host/17751df1-2dcd-45cb-8e2c-555116030c99/NIVRt20woD.lottie" autoplay loop></dotlottie-wc>
+</div>
+<h1>Analog magi i et digitalt univers, kom og mød kameraer med sjæl.</h1>
+    </section>
+
+    <div>
+        <section class="grid_3-1"><div>
+            <h2>ALT TIL DIN ANALOG REJSE - ÉT STED</h2>
+        <p>NV Foto er drevet af entusiaster, der brænder for at bevare og dele glæden ved analog fotografering. 
+Vi  sælger og køber brugte kameraer, fremkalder dine film, og tilbyder alt, hvad du har brug for til din analoge rejse.
+Med årtiers erfaring og en passion for kvalitet kan du stole på, at vi guider dig hele vejen. Besøg os i butikken, og lad os hjælpe dig med at genskabe magien i at tage billeder - én rulle film ad gangen.</p></div>
+<img src={Objektiv.src} alt="Illustration af en kameralinse"></section>
+    </div>
+
+<section>
+    <h2>UDFORSK</h2>
+</section>
+
+<div>
+    <section class="grid_1-1">
+<article class="dark_blue">
+    <div><h3>RAMMER & KONTORARTIKLER</h3>
+    <img src={kontorartikler.src} alt=""></div>
+</article>
+    </section>
+</div>
+</Layout>
+
+ 
+<style>
+   
+    dotlottie-wc {
+        object-fit: cover;
+    }
+     img {
+        max-height: 370px;
+        width: auto;
+     }
+     section {
+margin: 0 auto;
+margin-top: 100px;
+max-width: 500px;
+     }
+     h1 {font-size: 48px;
+    margin: 0;}
+    h3 {margin: 0;}
+     .dark_blue
+     {background-color: #091F5B;
+    border-radius: 25px;
+padding: 20px;}
+    @media (min-width: 800px) {
+        dotlottie-wc {
+        object-fit: cover;
+        height: auto;
+        width: 580px;
+    }
+     section {
+        max-width: 1160px;
+margin-top: 150px;
+     }
+     p {
+        max-width: 760px;
+     }
+    .grid_1-1 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+    .grid_3-1 {
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        gap: 20px;
+    }
+    h1 {
+        font-size: 54px;
+    }
+    }
+</style>
