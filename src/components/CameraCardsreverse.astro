@@ -1,5 +1,5 @@
 ---
-const { src, headline, bodytext, blitzSrc, blitzStyle } = Astro.props;
+const { src, headline, bodytext, hoverSrc } = Astro.props;
 import Circle from "../img/circleelement.webp";
 ---
 
@@ -10,13 +10,10 @@ import Circle from "../img/circleelement.webp";
       <p>{bodytext}</p>
     </div>
     <div class="img-container">
-      <img src={src} alt="Camera" class="Camimg" />
-      <img
-        src={blitzSrc}
-        alt="Blitz effect"
-        class="Blitzimg"
-        style={blitzStyle}
-      />
+      <div class="camera-img-wrapper">
+        <img src={src} alt="Camera" class="Camimg" />
+        <img src={hoverSrc} alt="Camera Hover" class="hover-img" />
+      </div>
       <img src={Circle.src} alt="Circle element" class="Circle" />
     </div>
   </div>
@@ -27,7 +24,7 @@ import Circle from "../img/circleelement.webp";
     background-color: #ffffff;
     border-radius: 10px;
     padding: 40px;
-    margin: 20px auto;
+    margin: 20px 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: visible;
   }
@@ -47,32 +44,36 @@ import Circle from "../img/circleelement.webp";
     margin-left: 20px;
   }
 
+  .camera-img-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
   .Camimg {
     width: auto;
     max-width: 300px;
     height: auto;
+    display: block;
     position: relative;
     z-index: 2;
-    transform: scaleX(-1) translateX(0%);
-    margin-left: 10px;
-    left: 15%;
-    bottom: 5%;
+    transform: scaleX(-1);
   }
-  .Blitzimg {
+
+  .hover-img {
     position: absolute;
     width: auto;
     max-width: 300px;
     height: auto;
+    top: 0;
+    left: 0;
     z-index: 3;
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
-    bottom: 5%;
-    left: 50%;
-    transform: translateX(-50%);
+    transform: scaleX(-1);
   }
 
-  .img-container:hover .Blitzimg {
+  .camera-img-wrapper:hover .hover-img {
     opacity: 1;
   }
 
@@ -109,15 +110,9 @@ import Circle from "../img/circleelement.webp";
       margin-top: 20px;
       order: -1;
     }
-    .Camimg {
+    .Camimg,
+    .hover-img {
       margin: auto;
-      left: 2%;
-      transform: scaleX(1) translateX(0%);
-      right: 0;
-    }
-    .Blitzimg {
-      right: 0;
-      left: 2%;
     }
     .Circle {
       right: 10%;

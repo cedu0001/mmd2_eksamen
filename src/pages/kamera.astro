@@ -13,8 +13,8 @@ import PointnshootHover from "../img/pointnshoothover.webp";
 import OldschoolHover from "../img/oldschoolanaloghover.webp";
 import EngangskameraHover from "../img/engangskamerahover.webp";
 import InstaxHover from "../img/instaxhover.webp";
+import CameraCardnohover from "../components/CameraCardnohover.astro";
 ---
-
 
 <Layout>
   <section class="Kameraside">
@@ -85,13 +85,35 @@ import InstaxHover from "../img/instaxhover.webp";
         </section>
       </InfoBox>
     </div>
-    <CameraCard
+    <CameraCardnohover
       src={Tilbehor.src}
       headline="KAMERA TILBEHØR"
       bodytext="Hos NV Foto finder du alt det tilbehør, der gør din fotografoplevelse endnu bedre. Uanset om du leder efter det perfekte objektiv, en UV-linse, en blitz, eller en solidt tripod, vi har det, der gør dit kamera endnu mere alsidigt. Kom forbi og udforsk, hvordan det rette tilbehør kan forvandle dine øjeblikke til noget ekstraordinært."
     />
   </section>
 </Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const imgContainers = document.querySelectorAll(".img-container");
+
+    imgContainers.forEach((container) => {
+      container.addEventListener("touchstart", function (e) {
+        const hoverImg = this.querySelector(".hover-img");
+        if (hoverImg) {
+          hoverImg.style.opacity = "1";
+        }
+      });
+
+      container.addEventListener("touchend", function (e) {
+        const hoverImg = this.querySelector(".hover-img");
+        if (hoverImg) {
+          hoverImg.style.opacity = "0";
+        }
+      });
+    });
+  });
+</script>
 
 <style>
   .Kameraside {
@@ -102,8 +124,10 @@ import InstaxHover from "../img/instaxhover.webp";
     justify-content: flex-start;
   }
 
-  .introtext {
+  .introtext,
+  h1 {
     max-width: 600px;
+    margin-bottom: 0;
   }
 
   .infobox h2,
@@ -124,12 +148,21 @@ import InstaxHover from "../img/instaxhover.webp";
     margin: 20px 0;
     max-width: fit-content;
   }
-  
-   @media (max-width: 1000px) {
-    .Kameraside {
-      margin: auto 20px;
+  @media (max-width: 1000px) {
+    body,
+    html {
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
+
+    .Kameraside {
+      margin: auto;
+      width: calc(100% - 20px);
+    }
+
     .infoboxes {
       grid-template-columns: 1fr;
     }
+  }
 </style>
