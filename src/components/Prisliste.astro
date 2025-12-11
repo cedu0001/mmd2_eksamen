@@ -1,77 +1,86 @@
 ---
 const { data } = Astro.props;
 ---
-<section>
-  <div class="pris-section">
+<section class="grid">
+
+  <div>
     <h2>{data.overskrift}</h2>
     <p>{data.broedtekst_1}</p>
     <p>{data.broedtekst_2}</p>
-  </div>
-
-  <div class="pris-section">
     <h3>{data.underoverskrift_1}</h3>
+  </div>
 
+  <div>
+    
     <div class="pris-row">
-      <p>{data.pristekst_1}</p>
-      <p>{data.pris_1}</p>
+      <span>{data.pristekst_1}</span>
+      <span>{data.pris_1}</span>
     </div>
 
     <div class="pris-row">
-      <p>{data.pristekst_2}</p>
-      <p>{data.pris_2}</p>
+      <span>{data.pristekst_2}</span>
+      <span>{data.pris_2}</span>
     </div>
 
     <div class="pris-row">
-      <p>{data.pristekst_3}</p>
-      <p>{data.pris_3}</p>
+      <span>{data.pristekst_3}</span>
+      <span>{data.pris_3}</span>
     </div>
   </div>
 
-  <div class="pris-section">
-    <h3>{data.underoverskrift_2}</h3>
 
+  <h3>{data.underoverskrift_2}</h3>
+  <div>
     <div class="pris-row">
-      <p>{data.pristekst_4}</p>
-      <p>{data.pris_4}</p>
+      <span>{data.pristekst_4}</span>
+      <span>{data.pris_4}</span>
     </div>
   </div>
 
-  <div class="pris-section">
-    <h3>{data.underoverskrift_3}</h3>
-
+  <!-- Ny gruppe -->
+  <h3>{data.underoverskrift_3}</h3>
+  <div>
     <div class="pris-row">
-      <p>{data.pristekst_5}</p>
-      <p>{data.pris_5}</p>
+      <span>{data.pristekst_5}</span>
+      <span>{data.pris_5}</span>
     </div>
 
     <div class="pris-row">
-      <p>{data.pristekst_6}</p>
-      <p>{data.pris_6}</p>
+      <span>{data.pristekst_6}</span>
+      <span>{data.pris_6}</span>
     </div>
 
     <div class="pris-row">
-      <p>{data.pristekst_7}</p>
-      <p>{data.pris_7}</p>
+      <span>{data.pristekst_7}</span>
+      <span>{data.pris_7}</span>
     </div>
   </div>
+
 </section>
 
 <style>
-section {
-  margin-bottom: 80px; /* hver sektion adskilt som i prototype */
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 40px;
+  padding: 40px 0;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+
+.pris-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  padding: 10px 0;
+  border-bottom: 1px solid #00071A;
+}
+
+.pris-row span:last-child {
+  font-weight: 500;
 }
 
 section {
-  margin-bottom: 60px;
-}
-
-.pris-section {
-  padding: 20px 0;
-  border-bottom: 1px solid #dcdcdc; /* den grå streg */
-}
-
-.pris-section:last-child {
-  border-bottom: none; /* ingen streg på sidste sektion */
+  margin-bottom: 80px;
 }
 
 h2 {
@@ -87,22 +96,9 @@ h3 {
   font-weight: 600;
 }
 
-p {
+p,
+span {
+  font-family: montserrat-r;
   margin: 4px 0;
 }
-
-.pris-row {
-  display: grid;
-  grid-template-columns: 1fr auto; /* tekst venstre – pris højre */
-  gap: 12px;
-  align-items: center;
-  margin: 4px 0;
-}
-
-.pris-row p {
-  margin: 0;
-}
-
-
-
 </style>
