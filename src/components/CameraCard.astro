@@ -1,0 +1,89 @@
+---
+const { src, headline, bodytext } = Astro.props;
+import Circle from "../img/circleelement.webp";
+---
+
+<section class="camera-section">
+  <div class="img-text-container">
+    <div class="img-container">
+      <img src={Circle.src} alt="Circle element" class="Circle" />
+      <img src={src} alt="Point and shoot kamera" class="Camimg" />
+    </div>
+    <div class="text-container">
+      <h2>{headline}</h2>
+      <p>{bodytext}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .camera-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0px;
+    max-width: calc(100% - 40px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: visible;
+  }
+
+  .img-text-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .img-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    min-height: 200px;
+  }
+
+  .Camimg {
+    width: auto;
+    max-width: 300px;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    margin-left: -40px;
+  }
+
+  .Circle {
+    position: absolute;
+    width: 200px;
+    height: auto;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+
+  .text-container {
+    flex: 2;
+    padding: 10px 20px;
+    text-align: left;
+  }
+
+  .text-container h2 {
+    margin-top: 0;
+    font-size: 2em;
+    color: #333;
+  }
+
+  @media (max-width: 800px) {
+    .img-text-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .img-container {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+</style>
