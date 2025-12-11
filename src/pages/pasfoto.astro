@@ -1,4 +1,99 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../css/general.css";
+import Pascard from "../components/Pascard.astro";
+import Pas from "../img/pas.webp";
+import InfoboxWhite from "../components/InfoboxWhite.astro";
 ---
+
+<Layout>
+  <section class="Passide">
+    <h1 class="Headline">PASFOTO</h1>
+    <Pascard
+      src={Pas.src}
+      H2="FÅ TAGET DIT PASFOTO HOS NV FOTO"
+      Ptext1="Hos NV Foto står vi klar til at tage dit næste pasfoto, så du er klar til din næste rejse. Vi følger de danske retningslinjer for pas fotos."
+      Ptext2="Skal du have taget pas fotografi med andre landes retningslinjer, skal du selv bringe information om landets gældende retningslinjer med, så vi kan sørge for, at dit billede er helt som det skal være."
+    />
+    <div class="Pasinfo-boxes">
+    <InfoboxWhite>
+      <section class="infoboxwhite ">
+          <h2>PASFOTOGRAFI PRISER</h2>
+          <p class="Infotext">Dansk pas (40 x 45):</p>
+          <p class="price">75kr</p>
+          <p class="Infotext">Udenlandsk pas (Størrelse varierer):</p>
+          <p class="price">100kr</p>
+          <p>Ved udlandsk skal du selv medbringe krav/retningslinjer så vi er sikker på det er som det skal være.</p>
+        </section>
+    </InfoboxWhite>
+        <InfoboxWhite>
+      <section class="infoboxwhite ">
+          <h2>TIDSPUNKTER FOR PAS FOTOGRAFERING:</h2>
+          <p class="Infotext">Mandag - Fredag:</p>
+          <ul class="Tidspunkt-liste">
+            <li>Børn: 9:00-16:00</li>
+            <li>Voksen: 9:00-17:00</li>
+          </ul>
+             <p class="Infotext">Lørdag:</p>
+          <ul class="Tidspunkt-liste">
+            <li>Børn: 9:00-11:30</li>
+            <li>Voksen: 9:00-12:00</li>
+          </ul>
+        </section>
+    </InfoboxWhite>
+    </div>
+  </section>
+</Layout>
+
+<style>
+
+  .Passide {
+    margin: auto 130px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+.infoboxwhite p {
+  box-sizing: border-box;
+  margin-top: auto;
+}
+  .Infotext {
+    font-weight: bolder;
+    margin-bottom: 0;
+  }
+
+    .Pasinfo-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+    box-sizing: border-box;
+  }
+
+    .infoboxwhite li {
+      list-style-type: none;
+      line-height: 2;
+      font-family: montserrat-r;
+      font-size: 20px;
+    }
+  @media screen and (max-width: 1000px) {
+    body,
+    html {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .Passide {
+      margin: auto;
+      width: calc(100% - 20px);
+    }
+
+    .Pasinfo-boxes {
+     margin: 20px auto;
+    width: calc(100% - 20px);
+    grid-template-columns: 1fr;
+    }
+    
+</style>
