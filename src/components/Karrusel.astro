@@ -1,0 +1,184 @@
+---
+import "../css/general.css";
+import filmrulle from "../img/filmrulle.webp";
+import pas from "../img/pas.webp";
+import analog from "../img/oldschoolanalog.webp";
+---
+<section class="karrusel_wrapper">
+    <div class="karrusel">
+    <article class="karrusel_item">
+    <img src={filmrulle.src} alt="">
+    <span></span>
+    <a class="link" href="/fremkald">FREMKALD</a>
+    </article>
+
+    <article class="karrusel_item">
+    <img src={pas.src} alt="Illustration af et åbent pas">
+    <span></span>
+    <a class="link" href="/pasfoto">PASFOTO</a>
+    </article>
+
+    <article class="karrusel_item">
+    <img src={analog.src} alt="Illustration af et analog kamera">
+    <span></span>
+    <a class="link" href="/kamera">KAMERA</a>
+    </article>
+    </div>
+</section>
+<section class="mobile_only">
+    <a id="prev">←</a>
+    <a id="next">→</a>
+</section>
+
+<style>
+    @media (max-width: 799px) {
+        section {
+            margin-bottom: 10px;
+        }
+    
+        .karrusel_wrapper {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        max-width: 770px;
+        margin: 20 auto;
+    }
+    .karrusel {
+        display: flex;
+        gap: 20px;
+        transition: transform 0.3s ease;
+    }
+    .karrusel_item {
+        min-width: 320px;
+    }
+    #prev, #next {
+        display: inline-block;
+        font-size: 48px;
+        background-color: #FFC446;
+        border-style: solid;
+        border-radius: 25px;
+        border-color: #364775;
+        text-align: center;
+        font-family: montserrat-m;
+        margin-top: 30px;
+        cursor: pointer;
+        box-shadow: 0px 5px 0px #FFC446;
+    }
+    #prev:hover, #next:hover {
+        box-shadow: none;
+        transform: translateY(5%);
+    }
+    #prev {
+        padding-left: 18px;
+        padding-right: 20px;
+    }
+    #next {
+        padding-left: 20px;
+        padding-right: 18px;
+    }
+    .mobile_only {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 50px;
+    }
+}
+@media (min-width: 800px){
+    .mobile_only {
+        display: none;
+    }
+    .karrusel {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 60px;
+        justify-content: space-between;
+    }
+}
+    article {
+        width: 320px;
+        height: 320px;
+        background-color: white;
+        border-radius: 25px;
+        position: relative;
+    }
+    article:hover {
+        background-color: #E5F3FF;
+    }
+    img {
+        max-height: 250px;
+        max-width: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .link {
+        color: white;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 25px;
+        font-family: montserrat-m;
+        font-size: 24px;
+        margin: 0;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    span {display: block;
+background-color: #091F5B;
+height: 55px;
+width: 180px;
+border-radius: 18px;
+position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+</style>
+
+<script>
+    //Venter på hele DOM er loaded før script køres
+    window.addEventListener("DOMContentLoaded", () => {
+
+        //henter di vigtigeste elementer fra DOM
+  const karrusel = document.querySelector(".karrusel")!;
+  const prev = document.querySelector("#prev")!;
+  const next = document.querySelector("#next")!;
+
+  //Holder styr på hvilket card er aktivt/synligt
+  let index = 0;
+
+  //flytter karusellen baseret på index
+  function updateKarrusel() {
+  const firstChild = karrusel.children[0];
+  const itemWidth = firstChild.offsetWidth;  //bredden af et card
+  karrusel.style.transform = `translateX(${-index * itemWidth}px)`; //Flytter karusellen ved at tage bredden af et card(item) og gange det med aktuel index, transform delen hænger sammen med css
+}
+
+//Hvor mange kort der er synlige af gangen (siden den er beregnet på mobil har jeg sat den på 1)
+function visibleCard() {
+ return 1;
+  }
+
+
+  //Klik på højre knap -> gå frem
+next.addEventListener("click", () => {
+    const visible = visibleCard();
+
+    //stop hvis det er det sidste kort
+    if (index < karrusel.children.length - visible) index++;
+updateKarrusel(); //opdaterer visning
+})
+
+//klik på venstre knap <- gå tilbage
+prev.addEventListener("click", () => {
+
+//stop hvis vi er ved start (index kan ikke gå i minus)
+if (index > 0) index--;
+
+updateKarrusel(); //opdaterer visning
+});
+});
+</script>
