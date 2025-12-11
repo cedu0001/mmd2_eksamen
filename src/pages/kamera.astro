@@ -1,4 +1,178 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../css/general.css";
+import CameraCard from "../components/CameraCard.astro";
+import CameraCardreverse from "../components/CameraCardsreverse.astro";
+import Pointnshoot from "../img/pointnshoot.webp";
+import Oldschool from "../img/oldschoolanalog.webp";
+import Engangskamera from "../img/engangskamera.webp";
+import Instax from "../img/instax.webp";
+import Tilbehor from "../img/flash.webp";
+import InfoBox from "../components/InfoboxBlue.astro";
+import PointnshootHover from "../img/pointnshoothover.webp";
+import OldschoolHover from "../img/oldschoolanaloghover.webp";
+import EngangskameraHover from "../img/engangskamerahover.webp";
+import InstaxHover from "../img/instaxhover.webp";
+import CameraCardnohover from "../components/CameraCardnohover.astro";
 ---
+
+<Layout>
+  <section class="Kameraside">
+    <div class="introtext">
+      <h1>Kamera</h1>
+      <p>
+        Hos NV Foto sælger vi brugte Analog kamera samt tilbehør til dit kamera.
+        Vi tester vi altid de brugte kamera inden vi sætter dem på hylden så du
+        kan være tryg ved, at alt fungerer præcis som det skal.
+      </p>
+    </div>
+    <CameraCard
+      src={Pointnshoot.src}
+      hoverSrc={PointnshootHover.src}
+      headline="POINT AND SHOOT"
+      bodytext="Point-and-shoot kameraer er perfekte til dig, der vil fange øjeblikke uden at tænke for meget over indstillingerne på kameraet. De er kompakte, nemme at have med i tasken og klar til at skyde, så snart du trykker på knappen. Et lille, ukompliceret kamera med masser af charme og den særlige analoge følelse."
+    />
+    <CameraCardreverse
+      src={Oldschool.src}
+      hoverSrc={OldschoolHover.src}
+      headline="OLD SCHOOL ANALOG"
+      bodytext="Disse kameraer er for dig, der vil fordybe dig i selve fotografi-håndværket. Her er der tid til at tænke, indstille og skabe billeder med sjæl. Uanset om du er nybegynder eller erfaren, giver disse kameraer dig en ægte, ufiltreret oplevelse og resultater, der er værd at vente på. Billederne har sandt karakter, sjæl og et udtryk, du selv har formet helt fra starten."
+    />
+    <CameraCard
+      src={Engangskamera.src}
+      hoverSrc={EngangskameraHover.src}
+      headline="ENGANGSKAMERA"
+      bodytext="Engangskameraer er den nemmeste måde at tage analoge billeder på! Perfekt til fester, rejser og små hverdagseventyr, hvor det handler mere om stemningen end det perfekte skud. Ukompliceret, sjovt og altid autentisk."
+    />
+    <CameraCardreverse
+      src={Instax.src}
+      hoverSrc={InstaxHover.src}
+      headline="INSTAX"
+      bodytext="Instax er for dig, der vil fange livets små, sjove og uforglemmelige øjeblikke og have dem i hånden med det samme. Med sit ikoniske, kompakte design og farverige billeder er Instax perfekt til at skabe fysiske minder, der er klar til at blive sat på køleskabet, sat i rammer eller delt med venner. Ideelt til fester, rejser eller bare en hyggelig dag med vennerne."
+    />
+    <div class="infoboxes">
+      <InfoBox>
+        <section class="infobox">
+          <h2>FILM TIL DIT KAMERA</h2>
+          <p>
+            Når du køber et analog kamera, skal der film til, for at det kan
+            bruges.
+          </p>
+          <p>Vi bestræber os på at have disse film hjemme, i 135mm og 120mm:</p>
+          <ul>
+            <li>Fuji</li>
+            <li>Portra</li>
+            <li>Kodak</li>
+            <li>Ilford</li>
+          </ul>
+        </section>
+      </InfoBox>
+      <InfoBox>
+        <section class="infobox">
+          <h2>VIL DU SÆLGE DIT KAMERA?</h2>
+          <p>Dette skal du huske når du kommer ned med dit brugte kamera:</p>
+          <ul>
+            <li>
+              Hvis dit kamera er digitalt så husk at have det ladet op på
+              forhånd.
+            </li>
+            <li>
+              Medbring altid billede ID, det er lovpligtigt for at vi kan
+              gennemføre salget.
+            </li>
+            <p>På forhånd, tak!</p>
+          </ul>
+        </section>
+      </InfoBox>
+    </div>
+    <CameraCardnohover
+      src={Tilbehor.src}
+      headline="KAMERA TILBEHØR"
+      bodytext="Hos NV Foto finder du alt det tilbehør, der gør din fotografoplevelse endnu bedre. Uanset om du leder efter det perfekte objektiv, en UV-linse, en blitz, eller en solidt tripod, vi har det, der gør dit kamera endnu mere alsidigt. Kom forbi og udforsk, hvordan det rette tilbehør kan forvandle dine øjeblikke til noget ekstraordinært."
+    />
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const imgContainers = document.querySelectorAll(".img-container");
+
+    imgContainers.forEach((container) => {
+      container.addEventListener("touchstart", function (e) {
+        const hoverImg = this.querySelector(".hover-img");
+        if (hoverImg) {
+          hoverImg.style.opacity = "1";
+        }
+      });
+
+      container.addEventListener("touchend", function (e) {
+        const hoverImg = this.querySelector(".hover-img");
+        if (hoverImg) {
+          hoverImg.style.opacity = "0";
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .Kameraside {
+    margin: auto 130px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .introtext,
+  h1 {
+    max-width: 600px;
+    margin-bottom: 0;
+  }
+
+  .infobox h2,
+  .infobox p {
+    color: #ffffff;
+  }
+
+  .infobox ul {
+    color: #ffffff;
+    padding-left: 20px;
+    font-family: montserrat-r;
+    line-height: 1.6;
+    font-size: 20px;
+  }
+
+  .infoboxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+    max-width: fit-content;
+  }
+  @media screen and (max-width: 1000px) {
+    body,
+    html {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .Kameraside {
+      margin: auto;
+      width: calc(100% - 20px);
+    }
+
+    .infoboxes {
+      grid-template-columns: 1fr;
+    }
+
+    h1 {
+      font-size: 32px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  }
+</style>
