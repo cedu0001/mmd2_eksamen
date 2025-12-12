@@ -1,96 +1,114 @@
 ---
-const { data } = Astro.props;
+const { data, id } = Astro.props;
+import CTAbtn from "./CTAbtn.astro";
 ---
 
 <section class="pris-grid">
 
-  <!-- VENSTRE SIDE – hardcodet tekst -->
+
   <div class="left">
 
-    <!-- FILM -->
-    <div class="section-block">
-      <h2>Film</h2>
-      <h3>135 mm</h3>
-      <p>1–2 dage</p>
-      <p>Engangskamera 10 kr ekstra — ved APS er der gebyr på 10 til 50 kr (alt efter hvad der skal laves)</p>
+    {id === 1 && (
+      <div class="section-block">
+        <h2>Film</h2>
+        <h3>135 mm</h3>
+        <p>1–2 dage</p>
+        <p>Engangskamera 10 kr ekstra — ved APS er der gebyr på 10 til 50 kr</p>
 
-      <h3>120 mm</h3>
-      <p>1–2 dage</p>
+        <h3>120 mm</h3>
+        <p>1–2 dage</p>
 
-      <h3>APS</h3>
-      <p>Ekstra gebyr afhængig af behandling</p>
-    </div>
+        <h3>E6</h3>
+        <p>3-5 dage</p>
+      </div>
+    )}
 
-    <!-- DIGITAL -->
-    <div class="section-block">
-      <h2>Fra digital medie (smartphone, usb...)</h2>
-      <h3>Digitale billeder til papirfotos</h3>
-      <p>1–2 dage</p>
-    </div>
+    {id === 2 && (
+      <div class="section-block">
+        <h2>Fra digital medie (smartphone, usb...)</h2>
+        <h3>Digitale billeder til papirfotos</h3>
+        <p>1–2 dage</p>
+      </div>
+    )}
 
-    <!-- VIDEO -->
-    <div class="section-block">
-      <h2>Båndvideo</h2>
+    {id === 3 && (
+      <div class="section-block">
+        <h2>Båndvideo</h2>
 
-      <h3>VHS til DVD (eller usb)</h3>
-      <p>2–5 dage</p>
+        <h3>VHS til DVD (eller usb)</h3>
+        <p>2–5 dage</p>
 
-      <h3>Smal film til digitalt</h3>
-      <p>10–30 dage</p>
-    </div>
+        <h3>Smal film til digitalt</h3>
+        <p>10–30 dage</p>
+      </div>
+    )}  
 
   </div>
 
-  <!-- HØJRE SIDE – dynamisk prisdata -->
+  <!-- HØJRE SIDE — priser (samme struktur, men ændrer sig pr. id) -->
   <div class="right">
 
-    <!-- FILM priser -->
-    <div class="price-row">
-      <span>{data.pristekst_1}</span>
-      <span class="pris">{data.pris_1}</span>
-    </div>
+    {id === 1 && (
+      <>
+      <div class="box">
+        <div class="price-row"><span>{data.pristekst_1}</span><span class="pris">{data.pris_1}</span></div>
+        <div class="price-row"><span>{data.pristekst_2}</span><span class="pris">{data.pris_2}</span></div>
+        <div class="price-row"><span>{data.pristekst_3}</span><span class="pris">{data.pris_3}</span></div>
+      </div >
+      <div class="box">
+        <div class="price-row"><span>{data.pristekst_4}</span><span class="pris">{data.pris_4}</span></div>
+      </div>
+      <div class="box">
+        <div class="price-row"><span>{data.pristekst_5}</span><span class="pris">{data.pris_5}</span></div>
+        <div class="price-row"><span>{data.pristekst_6}</span><span class="pris">{data.pris_6}</span></div>
+        <div class="price-row"><span>{data.pristekst_7}</span><span class="pris">{data.pris_7}</span></div>
+      </div>
+      </>
+    )}
 
-    <div class="price-row">
-      <span>{data.pristekst_2}</span>
-      <span class="pris">{data.pris_2}</span>
-    </div>
+    {id === 2 && (
+      <>
+        <div class="price-row"><span>{data.pristekst_1}</span><span class="pris">{data.pris_1}</span></div>
+        <div class="price-row"><span>{data.pristekst_2}</span><span class="pris">{data.pris_2}</span></div>
+        <div class="price-row"><span>{data.pristekst_3}</span><span class="pris">{data.pris_3}</span></div>
+        <div class="price-row"><span>{data.pristekst_4}</span><span class="pris">{data.pris_4}</span></div>
+        <div class="price-row"><span>{data.pristekst_5}</span><span class="pris">{data.pris_5}</span></div>
+      <div class="flex">
+        <div class="price-row"><span>{data.pristekst_6}</span><span class="pris">{data.pris_6}</span></div>
+        <CTAbtn>Kontakt os</CTAbtn>
+      </div>
+      </>
+    )}
 
-    <div class="price-row">
-      <span>{data.pristekst_3}</span>
-      <span class="pris">{data.pris_3}</span>
-    </div>
-
-    <div class="separator"></div>
-
-    <!-- DIGITAL priser -->
-    <div class="price-row">
-      <span>{data.pristekst_4}</span>
-      <span class="pris">{data.pris_4}</span>
-    </div>
-
-    <div class="separator"></div>
-
-    <!-- VIDEO priser -->
-    <div class="price-row">
-      <span>{data.pristekst_5}</span>
-      <span class="pris">{data.pris_5}</span>
-    </div>
-
-    <div class="price-row">
-      <span>{data.pristekst_6}</span>
-      <span class="pris">{data.pris_6}</span>
-    </div>
-
-    <div class="price-row">
-      <span>{data.pristekst_7}</span>
-      <span class="pris">{data.pris_7}</span>
-    </div>
-
+    {id === 3 && (
+      <>
+        <div class="price-row"><span>{data.pristekst_1}</span><span class="pris">{data.pris_1}</span></div>
+        <div class="price-row"><span>{data.pristekst_2}</span><span class="pris">{data.pris_2}</span></div>
+      </>
+    )}
   </div>
+
 </section>
 
-
 <style>
+
+  .box{
+    background-color: aquamarine;
+  }
+
+.flex{
+  display: flex;
+  flex-direction: row;
+}
+.flex span{
+  width: max-content;
+}
+
+span{
+  font-size: 20px;
+  font-family: montserrat-r;
+}
+
 .pris-grid {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -110,10 +128,10 @@ const { data } = Astro.props;
   position: relative;
 }
 
-/* LANGE LINJER SOM I PROTOTYPEN */
+
 .price-row span:first-child {
   flex-grow: 1;
-  border-bottom: 1px dotted #bbb; /* kan ændres til solid */
+  border-bottom: 1px dotted #bbb; 
   padding-right: 10px;
 }
 
@@ -121,7 +139,7 @@ const { data } = Astro.props;
   text-align: right;
   min-width: 90px;
   padding-left: 10px;
-  background: white; /* så linjen ikke kører hen over tallet */
+  background: white; 
   font-weight: 600;
 }
 
@@ -132,8 +150,6 @@ const { data } = Astro.props;
 }
 
 @media (max-width: 850px) {
-  .pris-grid {
-    grid-template-columns: 1fr;
-  }
+
 }
 </style>
