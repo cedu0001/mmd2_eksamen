@@ -1,9 +1,8 @@
 body {
-background-color: #F2ECE5;
+  background-color: #f2ece5;
 }
 
 main {
-
 }
 @font-face {
   font-family: montserrat-m;
@@ -22,20 +21,21 @@ main {
   src: url(../fonts/YoungSerif-Regular.ttf);
 }
 
-h1, h2, h3, p{
-    color: #00071A;
+h1,
+h2,
+h3,
+p {
+  color: #00071a;
 }
 
 h1 {
   font-family: youngserif-r;
   font-size: 64px;
-
 }
 
 h2 {
   font-family: youngserif-r;
   font-size: 32px;
-
 }
 
 h3 {
@@ -46,33 +46,27 @@ h3 {
 p {
   font-family: montserrat-r;
   font-size: 20px;
-
+  line-height: 1.6;
 }
 
- @media (max-width: 800px) {
+@media (max-width: 800px) {
+  h1 {
+    font-family: youngserif-r;
+    font-size: 48px;
+  }
 
-h1 {
-  font-family: youngserif-r;
-  font-size: 48px;
+  h2 {
+    font-family: youngserif-r;
+    font-size: 24px;
+  }
 
+  h3 {
+    font-family: montserrat-sb;
+    font-size: 24px;
+  }
+
+  p {
+    font-family: montserrat-r;
+    font-size: 18px;
+  }
 }
-
-h2 {
-  font-family: youngserif-r;
-  font-size: 24px;
-
-}
-
-h3 {
-  font-family: montserrat-sb;
-  font-size: 24px;
-}
-
-p {
-  font-family: montserrat-r;
-  font-size: 20px;
-
-}
-
-
- }
